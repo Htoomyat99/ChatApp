@@ -1,16 +1,13 @@
-import { ThemedText } from "@/components/ThemedText";
+import ExampleOne from "@/components/reanimated/ExampleOne";
 import { ThemedView } from "@/components/ThemedView";
+import React from "react";
 
-export default function HomeScreen() {
+const index = () => {
   return (
-    <ThemedView
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <ThemedText>Home</ThemedText>
+    <ThemedView style={{ flex: 1 }}>
+      <ExampleOne />
     </ThemedView>
   );
-}
+};
+
+export default index;

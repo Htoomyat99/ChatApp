@@ -1,12 +1,13 @@
 import ExampleOne from "@/components/reanimated/ExampleOne";
-import { ThemedView } from "@/components/ThemedView";
 import React from "react";
+import { SafeAreaView } from "react-native";
 
 const index = () => {
   return (
-    <ThemedView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ExampleOne />
-    </ThemedView>
+      {/* <ExampleTwo /> */}
+    </SafeAreaView>
   );
 };
 

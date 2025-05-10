@@ -17,7 +17,7 @@ const handleRotation = (progress: SharedValue<number>) => {
   return `${progress.value * 2 * Math.PI}rad`;
 };
 
-const ExampleOne = () => {
+const AnimateOne = () => {
   const progress = useSharedValue(1);
   const scale = useSharedValue(1.5);
 
@@ -53,4 +53,4 @@ const ExampleOne = () => {
   );
 };
 
-export default ExampleOne;
+export default AnimateOne;

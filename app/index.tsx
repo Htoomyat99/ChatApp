@@ -1,10 +1,16 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { router } from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
+import { Platform, SafeAreaView, Text } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const index = () => {
+  const { top } = useSafeAreaInsets();
+
   return (
-    <View>
+    <SafeAreaView
+      style={[{ flex: 1, marginTop: Platform.OS === "android" ? top : null }]}
+    >
       <Text onPress={() => router.push("/animateOne")}>Animate One</Text>
       <Text onPress={() => router.push("/animateTwo")}>Animate Two</Text>
       <Text onPress={() => router.push("/animateThree")}>Animate Three</Text>
@@ -12,7 +18,7 @@ const index = () => {
       <Text onPress={() => router.push("/animateOne")}>Animate One</Text>
       <Text onPress={() => router.push("/animateOne")}>Animate One</Text>
       <Text onPress={() => router.push("/animateOne")}>Animate One</Text> */}
-    </View>
+    </SafeAreaView>
   );
 };
 

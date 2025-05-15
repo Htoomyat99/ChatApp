@@ -14,10 +14,10 @@ const index = () => {
       <Text onPress={() => router.push("/animateOne")}>Animate One</Text>
       <Text onPress={() => router.push("/animateTwo")}>Animate Two</Text>
       <Text onPress={() => router.push("/animateThree")}>Animate Three</Text>
-      {/* <Text onPress={() => router.push("/animateOne")}>Animate One</Text>
-      <Text onPress={() => router.push("/animateOne")}>Animate One</Text>
-      <Text onPress={() => router.push("/animateOne")}>Animate One</Text>
-      <Text onPress={() => router.push("/animateOne")}>Animate One</Text> */}
+      <Text onPress={() => router.push("/animateFour")}>Animate Four</Text>
+      {/* <Text onPress={() => router.push("/animateOne")}>Animate One</Text> */}
+      {/* <Text onPress={() => router.push("/animateOne")}>Animate One</Text> */}
+      {/* <Text onPress={() => router.push("/animateOne")}>Animate One</Text> */}
     </SafeAreaView>
   );
 };

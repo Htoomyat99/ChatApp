@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
-import { Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, Platform, StyleSheet, View } from "react-native";
 import Animated, {
   Extrapolation,
   interpolate,
@@ -12,6 +12,8 @@ import Animated, {
 const Words = ["What's", "up", "mobile", "devs?"];
 
 const { width, height } = Dimensions.get("window");
+
+const SIZE = width * 0.7;
 
 const AnimateThree = () => {
   const translateX = useSharedValue(0);
@@ -34,8 +36,38 @@ const AnimateThree = () => {
         Extrapolation.CLAMP
       );
 
+      const borderRadius = interpolate(
+        translateX.value,
+        inputRange(index),
+        [0, SIZE / 2, 0],
+        Extrapolation.CLAMP
+      );
+
       return {
         transform: [{ scale }],
+        borderRadius,
+      };
+    });
+  };
+
+  const getAnimatedTextStyle = (index: number) => {
+    return useAnimatedStyle(() => {
+      const translateY = interpolate(
+        translateX.value,
+        inputRange(index),
+        [height / 2, 0, -height / 2],
+        Extrapolation.CLAMP
+      );
+
+      const opacity = interpolate(
+        translateX.value,
+        inputRange(index),
+        [-1, 1, -1]
+      );
+
+      return {
+        transform: [{ translateY }],
+        opacity,
       };
     });
   };
@@ -50,6 +82,7 @@ const AnimateThree = () => {
     >
       {Words.map((title, index) => {
         const rStyle = getAnimatedStyle(index);
+        const rTextStyle = getAnimatedTextStyle(index);
 
         return (
           <View
@@ -62,7 +95,9 @@ const AnimateThree = () => {
             ]}
           >
             <Animated.View style={[styles.square, rStyle]}>
-              <Animated.Text style={{ fontSize: 50 }}>{title}</Animated.Text>
+              <Animated.Text style={[styles.textStyle, rTextStyle]}>
+                {title}
+              </Animated.Text>
             </Animated.View>
           </View>
         );
@@ -79,13 +114,21 @@ const styles = StyleSheet.create({
   },
   container: {
     width,
-    // height,
+    height: Platform.OS === "ios" ? height : null,
     alignItems: "center",
     justifyContent: "center",
   },
   square: {
-    width: width * 0.7,
-    height: width * 0.7,
+    width: SIZE,
+    height: SIZE,
     backgroundColor: "rgba(0, 0, 256, 0.4)",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  textStyle: {
+    fontSize: 70,
+    color: "#FFFFFF",
+    fontWeight: "bold",
+    textTransform: "uppercase",
   },
 });

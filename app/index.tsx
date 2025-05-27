@@ -32,7 +32,9 @@ const index = () => {
       <Text style={styles.text} onPress={() => router.push("/animateFive")}>
         Animate Five
       </Text>
-      {/* <Text onPress={() => router.push("/animateOne")}>Animate One</Text> */}
+      <Text style={styles.text} onPress={() => router.push("/animateFive")}>
+        Animate Six
+      </Text>
       {/* <Text onPress={() => router.push("/animateOne")}>Animate One</Text> */}
     </SafeAreaView>
   );

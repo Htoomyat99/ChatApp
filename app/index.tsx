@@ -12,7 +12,7 @@ const index = () => {
       style={[
         {
           flex: 1,
-          padding: 20,
+          padding: Platform.OS === "android" ? 20 : 0,
           marginTop: Platform.OS === "android" ? top : null,
         },
       ]}
@@ -32,7 +32,7 @@ const index = () => {
       <Text style={styles.text} onPress={() => router.push("/animateFive")}>
         Animate Five
       </Text>
-      <Text style={styles.text} onPress={() => router.push("/animateFive")}>
+      <Text style={styles.text} onPress={() => router.push("/animateSix")}>
         Animate Six
       </Text>
       {/* <Text onPress={() => router.push("/animateOne")}>Animate One</Text> */}
@@ -45,5 +45,6 @@ export default index;
 const styles = StyleSheet.create({
   text: {
     paddingVertical: 5,
+    paddingLeft: Platform.OS === "ios" ? 20 : 0,
   },
 });

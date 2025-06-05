@@ -33,6 +33,7 @@ export default function RootLayout() {
           <Stack.Screen name="animateFour" />
           <Stack.Screen name="animateFive" />
           <Stack.Screen name="animateSix" />
+          <Stack.Screen name="animateSeven" />
         </Stack>
         <StatusBar style="auto" />
       </ThemeProvider>

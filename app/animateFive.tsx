@@ -51,6 +51,7 @@ const AnimateFive = () => {
     };
   });
 
+
   return (
     <GestureDetector gesture={pitchHandler}>
       <Animated.View style={{ flex: 1 }}>
@@ -59,6 +60,7 @@ const AnimateFive = () => {
           source={{ uri: imageUrl }}
         />
         <Animated.View style={[styles.focalPoint, focalPointStyle]} />
+
       </Animated.View>
     </GestureDetector>
   );
